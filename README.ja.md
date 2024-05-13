@@ -18,7 +18,7 @@ LLMは外界からのレスポンスであり、常に望む値が返ってく�
 { originalText: string; fixedText: string; reason: string; }[]
 ```
 
-## Level 1 - 特に工夫のないやり方 (main.ts)
+## Level 1 - 特に工夫のないやり方 (level/1main.ts)
 
 Level 1では、OpenAIのgpt-4-turboモデルを使用し、システムの振る舞い、入力、出力フォーマットを含めたプロンプトを投げ、レスポンスをJSONでパースして型をつけています。
 
@@ -29,7 +29,7 @@ Level 1では、OpenAIのgpt-4-turboモデルを使用し、システムの振�
 
 そのため、ランタイムエラーのリスクや、出力フォーマットとレスポンスの型の不一致といった問題を抱えています。
 
-## Level 2 - TypeChatを使った方法 (typechat.ts)
+## Level 2 - TypeChatを使った方法 (level2/main.ts)
 
 Level 2では、TypeChatというライブラリを使用しています。TypeChatは自然言語を型を満たすように変換するのに便利なライブラリで、内部でzodによる検証、リトライ、プロンプトの最適化などを行っています。
 
@@ -40,7 +40,7 @@ Level 2では、TypeChatというライブラリを使用しています。TypeC
 
 そのため、このサンプルではTypeChatを使用していますが、実際のユースケースには適していない可能性があります。
 
-## Level 3 - 理想的な方法 (anthropic.ts, openai.ts)
+## Level 3 - 理想的な方法 (level3/{anthropic.ts, openai.ts})
 
 Level 3では、以下の要件を満たす方法を紹介しています。
 

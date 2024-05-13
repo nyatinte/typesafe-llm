@@ -18,7 +18,7 @@ The goal is to convert the proofreading results into the following type:
 { originalText: string; fixedText: string; reason: string; }[]
 ```
 
-## Level 1 - A simple approach without any special techniques (main.ts)
+## Level 1 - A simple approach without any special techniques (level1/main.ts)
 
 In Level 1, we use OpenAI's gpt-4-turbo model, send a prompt including the system behavior, input, and output format, parse the response with JSON, and assign types.
 
@@ -29,7 +29,7 @@ However, this code has the following problems:
 
 Therefore, it has risks of runtime errors and inconsistencies between the output format and the response type.
 
-## Level 2 - Using TypeChat (typechat.ts)
+## Level 2 - Using TypeChat (level2/main.ts)
 
 In Level 2, we use a library called TypeChat. TypeChat is a convenient library for converting natural language to match types, and internally performs validation with zod, retries, prompt optimization, etc.
 
@@ -40,7 +40,7 @@ However, TypeChat has the following challenges:
 
 Therefore, although we use TypeChat in this sample, it may not be suitable for actual use cases.
 
-## Level 3 - An ideal approach (anthropic.ts, openai.ts)
+## Level 3 - An ideal approach (level3/{anthropic.ts, openai.ts})
 
 In Level 3, we introduce a method that satisfies the following requirements:
 
