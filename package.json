@@ -1,12 +1,13 @@
 {
   "name": "typesafe-llm",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Typesafe LLM Example",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "level1": "tsx --env-file='.env' src/level1/main.ts",
+    "level2": "tsx --env-file='.env' src/level2/main.ts",
+    "level3:openai": "tsx --env-file='.env' src/level3/openai.ts",
+    "level3:anthropic": "tsx --env-file='.env' src/level3/anthropic.ts"
   },
-  "keywords": [],
   "author": {
     "name": "nyatinte",
     "url": "https://github.com/nyatinte"
@@ -25,5 +26,8 @@
     "typechat": "^0.1.0",
     "zod": "^3.23.8",
     "zod-to-ts": "^1.2.0"
+  },
+  "volta": {
+    "node": "20.13.1"
   }
 }
