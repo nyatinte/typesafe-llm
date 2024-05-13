@@ -1,29 +1,21 @@
 import { openAI } from '../client/openai';
 
-const main = async () => {
-  const systemPrompt = `あなたは校閲です。入力された文章の誤字脱字を修正してください。`;
-  const inputPromptPrefix = `# 入力`;
-  const input = `
-私5月11日にTSKaigiというTypeScriptのカンファレンスに参加しました。
-TypeScriptに関するノウハウを得ることができ、とても有意義な時間を過ごすできました。
-また、参加者の人々と交流することで、モチベーションが高めることができました。
-`;
+const main = async (input: string) => {
+  const systemPrompt = `
+あなたは校閲です。入力された文章の誤字脱字を修正してください。
 
-  const outputFormatPromptPrefix = `# 出力フォーマット`;
-  const outputFormat = `
+# 要件
+- 細かい誤字脱字も指摘すること
+- JSONで出力し、以下の出力フォーマットに必ず従うこと
+- 誤字脱字がない場合は、空の配列を返すこと
+
+# 出力フォーマット
 {
   originalText: string; // 元の文章 (問題のある箇所をピンポイントで抽出すること)
   fixedText: string; // 誤字脱字を修正した文章
   reason: string; // 修正理由
-}[]
+}
 `;
-
-  const userPrompt = [
-    inputPromptPrefix,
-    input,
-    outputFormatPromptPrefix,
-    outputFormat,
-  ].join('\n');
 
   const response = await openAI.chat.completions.create({
     model: 'gpt-4-turbo',
@@ -31,12 +23,16 @@ TypeScriptに関するノウハウを得ることができ、とても有意義�
       { role: 'system', content: systemPrompt },
       {
         role: 'user',
-        content: userPrompt,
+        content: input,
       },
     ],
   });
 
-  const result = JSON.parse(response.choices[0]?.message.content as string) as {
+  const content = response.choices[0]?.message.content;
+  if (!content) {
+    throw new Error('OpenAIからのレスポンスが不正です');
+  }
+  const result = JSON.parse(content) as {
     originalText: string;
     fixedText: string;
     reason: string;
@@ -51,4 +47,9 @@ TypeScriptに関するノウハウを得ることができ、とても有意義�
   });
 };
 
-await main();
+const input = `
+私5月11日にTSKaigiというTypeScriptのカンファレンスに参加しました。
+TypeScriptに関するノウハウを得ることができ、とても有意義な時間を過ごすできました。
+また、参加者の人々と交流することで、モチベーションが高めることができました。
+`;
+await main(input);
