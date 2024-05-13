@@ -40,4 +40,4 @@ const main = async (input: string) => {
 
 // Typechatは自然言語を型を満たすように変換する機能に特化している。校閲は別の部分で行われたとする。
 const input = `モチベーションが高めることができました→モチベーションを高めることができました。使役表現の誤用`;
-await main(input);
+main(input);
