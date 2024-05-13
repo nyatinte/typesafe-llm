@@ -13,7 +13,16 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^20.12.11",
     "tsx": "^4.10.1",
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.20.9",
+    "@t3-oss/env-core": "^0.10.1",
+    "openai": "^4.45.0",
+    "typechat": "^0.1.0",
+    "zod": "^3.23.8",
+    "zod-to-ts": "^1.2.0"
   }
 }
