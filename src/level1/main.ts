@@ -18,7 +18,7 @@ const main = async (input: string) => {
 `;
 
   const response = await openAI.chat.completions.create({
-    model: 'gpt-4-turbo',
+    model: 'gpt-4o-2024-05-13',
     messages: [
       { role: 'system', content: systemPrompt },
       {

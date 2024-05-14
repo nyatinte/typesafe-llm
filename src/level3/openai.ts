@@ -35,7 +35,7 @@ const main = async (input: string) => {
   // OpenAI APIを呼び出す関数
   const caller = async (): Promise<Response> => {
     const response = await openAI.chat.completions.create({
-      model: 'gpt-4-turbo',
+      model: 'gpt-4o-2024-05-13',
       messages: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content: input },

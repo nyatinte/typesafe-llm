@@ -16,7 +16,10 @@ const main = async (input: string) => {
     reason: z.string().describe('修正理由'),
   });
 
-  const model = createOpenAILanguageModel(env.OPENAI_API_KEY, 'gpt-4-turbo');
+  const model = createOpenAILanguageModel(
+    env.OPENAI_API_KEY,
+    'gpt-4o-2024-05-13'
+  );
   const validator = createZodJsonValidator(
     { responseSchema },
     'responseSchema'
