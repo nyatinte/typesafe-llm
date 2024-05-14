@@ -12,8 +12,8 @@ dependencies:
     specifier: ^0.10.1
     version: 0.10.1(typescript@5.4.5)(zod@3.23.8)
   openai:
-    specifier: ^4.45.0
-    version: 4.45.0
+    specifier: ^4.46.1
+    version: 4.46.1
   ts-retry:
     specifier: ^4.2.5
     version: 4.2.5
@@ -440,8 +440,8 @@ packages:
       whatwg-url: 5.0.0
     dev: false
 
-  /openai@4.45.0:
-    resolution: {integrity: sha512-uszUQrl9eQPCA9a7Zml+Eizb3mG0JDd8zUl528OM6Ccn039dqbOmUivL5s8zUM6iJMRMvNGRMXS9yuuR1Bv2sw==}
+  /openai@4.46.1:
+    resolution: {integrity: sha512-YILOwSwyg6h4FqDCehzZ/vu0hI6eQWXv7BQ/nNNyRHbprerZmkiRYBzq2h4iiJKUOrIw66APE46ZW/iP8y8Fiw==}
     hasBin: true
     dependencies:
       '@types/node': 18.19.33
