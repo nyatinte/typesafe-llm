@@ -28,6 +28,9 @@ dependencies:
     version: 1.2.0(typescript@5.4.5)(zod@3.23.8)
 
 devDependencies:
+  '@total-typescript/tsconfig':
+    specifier: ^1.0.2
+    version: 1.0.2
   '@types/node':
     specifier: ^20.12.11
     version: 20.12.11
@@ -274,6 +277,10 @@ packages:
       typescript: 5.4.5
       zod: 3.23.8
     dev: false
+
+  /@total-typescript/tsconfig@1.0.2:
+    resolution: {integrity: sha512-LJkusxCP5R8RneR0KU6pcSLUdzbTLHCqtKTGCrR2cwyna3P9eh9uANi3tUyvpDalD0E8hJKRL5nXfTExlUoZKA==}
+    dev: true
 
   /@types/node-fetch@2.6.11:
     resolution: {integrity: sha512-24xFj9R5+rfQJLRyM56qh+wnVSYhyXC2tkoBndtY0U+vubqNsYXGjufB2nn8Q6gt0LrARwL6UBtMCSVCwl4B1g==}
