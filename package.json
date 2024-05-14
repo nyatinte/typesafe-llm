@@ -12,6 +12,7 @@
     "name": "nyatinte",
     "url": "https://github.com/nyatinte"
   },
+  "type": "module",
   "license": "MIT",
   "devDependencies": {
     "@total-typescript/tsconfig": "^1.0.2",
