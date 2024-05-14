@@ -5,15 +5,17 @@ import { openAI } from '../client/openai';
 
 const main = async (input: string) => {
   const jsonStringSchema = z.string().transform((s) => JSON.parse(s));
-  const responseSchema = z
-    .object({
-      originalText: z
-        .string()
-        .describe('元の文章 (問題のある箇所をピンポイントで抽出すること)'),
-      fixedText: z.string().describe('誤字脱字を修正した文章'),
-      reason: z.string().describe('修正理由'),
-    })
-    .array();
+  const responseSchema = z.object({
+    data: z
+      .object({
+        originalText: z
+          .string()
+          .describe('元の文章 (問題のある箇所をピンポイントで抽出すること)'),
+        fixedText: z.string().describe('誤字脱字を修正した文章'),
+        reason: z.string().describe('修正理由'),
+      })
+      .array(),
+  });
 
   type Response = z.infer<typeof responseSchema>;
 
@@ -40,6 +42,7 @@ const main = async (input: string) => {
         { role: 'system', content: systemPrompt },
         { role: 'user', content: input },
       ],
+      response_format: { type: 'json_object' },
     });
     // レスポンスのJSON→Zodスキーマの型に変換 失敗したらエラーをThrow
     const parsed = jsonStringSchema
@@ -63,7 +66,7 @@ const main = async (input: string) => {
       },
     });
 
-    result.forEach((r) => {
+    result.data.forEach((r) => {
       console.log({
         修正前の文章: r.originalText,
         修正後の文章: r.fixedText,
