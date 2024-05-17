@@ -1,5 +1,7 @@
 [English](README.md) | 日本語
 
+Speaker Deck: <https://speakerdeck.com/nyatinte/llmwoxing-an-quan-nishi-utips>
+
 # 型安全にLLMを使うためのTips
 
 このリポジトリでは、TypeScriptを使ってLLMを型安全に利用するためのTipsを紹介しています。

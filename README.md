@@ -1,5 +1,7 @@
 English | [日本語](README.ja.md)
 
+Speaker Deck: <https://speakerdeck.com/nyatinte/llmwoxing-an-quan-nishi-utips>
+
 # Tips for Using LLMs in a Type-Safe
 
 This repository introduces tips for using LLMs in a type-safe manner with TypeScript.
